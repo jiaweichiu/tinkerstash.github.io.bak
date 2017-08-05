@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Julia</title>
-    <description>Julia
+    <title>Jiawei&#39;s homepage</title>
+    <description>Jiawei&#39;s homepage
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 05 Aug 2017 15:19:51 +0800</pubDate>
-    <lastBuildDate>Sat, 05 Aug 2017 15:19:51 +0800</lastBuildDate>
+    <pubDate>Sat, 05 Aug 2017 16:34:18 +0800</pubDate>
+    <lastBuildDate>Sat, 05 Aug 2017 16:34:18 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Matrix Pencil Sparse Fourier Transform</title>
+        <description>&lt;h1 id=&quot;links&quot;&gt;Links&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/tinkerstash/mpsft/blob/master/report/report.pdf&quot;&gt;&lt;strong&gt;Brief report&lt;/strong&gt;&lt;/a&gt; describes how MPSFT works.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dspace.mit.edu/handle/1721.1/83691?show=full&quot;&gt;PhD thesis&lt;/a&gt; contains some theory.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/tinkerstash/mpsft&quot;&gt;Github page&lt;/a&gt; has the implementation details.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+
+&lt;p&gt;SFT (sparse Fourier transform) algorithms aim to perform discrete Fourier transform in O(S) time, ignoring log factors, where S is the sparsity in frequency domain. In other words, the solution has a support of size S, plus some noise.&lt;/p&gt;
+
+&lt;p&gt;In MPSFT (Matrix Pencil Sparse Fourier Transform), we apply the matrix pencil method to improve the accuracy of mode identification and to reduce the chance of creating spurious modes (and having to correct them later). It makes SFT algorithms more feasible and practical. For N=2^22, we are faster than FFTW when S is less than around 1800. AAFFT is faster for a smaller range of S, say around &amp;lt;= 200. A more recent work &lt;a href=&quot;http://users.math.msu.edu/users/markiwen/Papers/DiscreteSFT.pdf&quot;&gt;DMSFT&lt;/a&gt; seems to be somewhat competitive with MPSFT.&lt;/p&gt;
+
+&lt;h1 id=&quot;results&quot;&gt;Results&lt;/h1&gt;
+
+&lt;p&gt;In the plot below, we fix N=2^22 and vary S (sparsity) and plot the running time. SFFT1 and SFFT2 are faster but they have a runtime of O(sqrt(NS)) ignoring log factors.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/tinkerstash/mpsft/master/report/graph/runtime_vary_k.png&quot; alt=&quot;plot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In the plot below, we fix K=50 and increase N. Here we see that MPSFT will be faster than SFFT1, SFFT2 for N being around 2^24.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/tinkerstash/mpsft/master/report/graph/runtime_vary_n.png&quot; alt=&quot;plot&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;basic-ingredients&quot;&gt;Basic ingredients&lt;/h1&gt;
+
+&lt;p&gt;We bin the signal in frequency domain by convolving with a &lt;strong&gt;smoothed boxcar filter&lt;/strong&gt;. This can be achieved in time domain by multiplying with the corresponding window.&lt;/p&gt;
+
+&lt;p&gt;In each bin, we hope there is only one mode. Then using the &lt;strong&gt;matrix pencil method&lt;/strong&gt;, we can identify each bit of the mode frequency and also detect if there is indeed exactly one mode.&lt;/p&gt;
+
+&lt;p&gt;We exploit some &lt;strong&gt;symmetry&lt;/strong&gt; to roughly halve the computation cost of the matrix pencil method. We apply &lt;strong&gt;SIMD&lt;/strong&gt; optimization to achieve &amp;gt;=2X speedup.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 05 Aug 2017 00:00:00 +0800</pubDate>
+        <link>/algorithms/2017/08/05/mpsft.html</link>
+        <guid isPermaLink="true">/algorithms/2017/08/05/mpsft.html</guid>
+        
+        
+        <category>algorithms</category>
+        
+      </item>
     
       <item>
         <title>Sample Post</title>
@@ -139,160 +182,6 @@
         <category>live</category>
         
         <category>life</category>
-        
-        
-        <category>misc</category>
-        
-      </item>
-    
-      <item>
-        <title>Testing Readability</title>
-        <description>&lt;p&gt;Portland in shoreditch Vice, labore typewriter pariatur hoodie fap sartorial Austin. Pinterest literally occupy Schlitz forage. Odio ad blue bottle vinyl, 90’s narwhal commodo bitters pour-over nostrud. Ugh est hashtag in, fingerstache adipisicing laboris esse Pinterest shabby chic Portland. Shoreditch bicycle rights anim, flexitarian laboris put a bird on it vinyl cupidatat narwhal. Hashtag artisan skateboard, flannel Bushwick nesciunt salvia aute fixie do plaid post-ironic dolor McSweeney’s. Cliche pour-over chambray nulla four loko skateboard sapiente hashtag.&lt;/p&gt;
-
-&lt;p&gt;Vero laborum commodo occupy. Semiotics voluptate mumblecore pug. Cosby sweater ullamco quinoa ennui assumenda, sapiente occupy delectus lo-fi. Ea fashion axe Marfa cillum aliquip. Retro Bushwick keytar cliche. Before they sold out sustainable gastropub Marfa readymade, ethical Williamsburg skateboard brunch qui consectetur gentrify semiotics. Mustache cillum irony, fingerstache magna pour-over keffiyeh tousled selfies.&lt;/p&gt;
-
-&lt;h2 id=&quot;cupidatat-90s-lo-fi-authentic-try-hard&quot;&gt;Cupidatat 90’s lo-fi authentic try-hard&lt;/h2&gt;
-
-&lt;p&gt;In pug Portland incididunt mlkshk put a bird on it vinyl quinoa. Terry Richardson shabby chic +1, scenester Tonx excepteur tempor fugiat voluptate fingerstache aliquip nisi next level. Farm-to-table hashtag Truffaut, Odd Future ex meggings gentrify single-origin coffee try-hard 90’s.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Sartorial hoodie&lt;/li&gt;
-  &lt;li&gt;Labore viral forage&lt;/li&gt;
-  &lt;li&gt;Tote bag selvage&lt;/li&gt;
-  &lt;li&gt;DIY exercitation et id ugh tumblr church-key&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Incididunt umami sriracha, ethical fugiat VHS ex assumenda yr irure direct trade. Marfa Truffaut bicycle rights, kitsch placeat Etsy kogi asymmetrical. Beard locavore flexitarian, kitsch photo booth hoodie plaid ethical readymade leggings yr.&lt;/p&gt;
-
-&lt;p&gt;Aesthetic odio dolore, meggings disrupt qui readymade stumptown brunch Terry Richardson pour-over gluten-free. Banksy american apparel in selfies, biodiesel flexitarian organic meh wolf quinoa gentrify banjo kogi. Readymade tofu ex, scenester dolor umami fingerstache occaecat fashion axe Carles jean shorts minim. Keffiyeh fashion axe nisi Godard mlkshk dolore. Lomo you probably haven’t heard of them eu non, Odd Future Truffaut pug keytar meggings McSweeney’s Pinterest cred. Etsy literally aute esse, eu bicycle rights qui meggings fanny pack. Gentrify leggings pug flannel duis.&lt;/p&gt;
-
-&lt;h2 id=&quot;forage-occaecat-cardigan-qui&quot;&gt;Forage occaecat cardigan qui&lt;/h2&gt;
-
-&lt;p&gt;Fashion axe hella gastropub lo-fi kogi 90’s aliquip +1 veniam delectus tousled. Cred sriracha locavore gastropub kale chips, iPhone mollit sartorial. Anim dolore 8-bit, pork belly dolor photo booth aute flannel small batch. Dolor disrupt ennui, tattooed whatever salvia Banksy sartorial roof party selfies raw denim sint meh pour-over. Ennui eu cardigan sint, gentrify iPhone cornhole.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Whatever velit occaecat quis deserunt gastropub, leggings elit tousled roof party 3 wolf moon kogi pug blue bottle ea. Fashion axe shabby chic Austin quinoa pickled laborum bitters next level, disrupt deep v accusamus non fingerstache.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Tote bag asymmetrical elit sunt. Occaecat authentic Marfa, hella McSweeney’s next level irure veniam master cleanse. Sed hoodie letterpress artisan wolf leggings, 3 wolf moon commodo ullamco. Anim occupy ea labore Terry Richardson. Tofu ex master cleanse in whatever pitchfork banh mi, occupy fugiat fanny pack Austin authentic. Magna fugiat 3 wolf moon, labore McSweeney’s sustainable vero consectetur. Gluten-free disrupt enim, aesthetic fugiat jean shorts trust fund keffiyeh magna try-hard.&lt;/p&gt;
-
-&lt;h2 id=&quot;hoodie-duis&quot;&gt;Hoodie Duis&lt;/h2&gt;
-
-&lt;p&gt;Actually salvia consectetur, hoodie duis lomo YOLO sunt sriracha. Aute pop-up brunch farm-to-table odio, salvia irure occaecat. Sriracha small batch literally skateboard. Echo Park nihil hoodie, aliquip forage artisan laboris. Trust fund reprehenderit nulla locavore. Stumptown raw denim kitsch, keffiyeh nulla twee dreamcatcher fanny pack ullamco 90’s pop-up est culpa farm-to-table. Selfies 8-bit do pug odio.&lt;/p&gt;
-
-&lt;h3 id=&quot;thundercats-ho&quot;&gt;Thundercats Ho!&lt;/h3&gt;
-
-&lt;p&gt;Fingerstache thundercats Williamsburg, deep v scenester Banksy ennui vinyl selfies mollit biodiesel duis odio pop-up. Banksy 3 wolf moon try-hard, sapiente enim stumptown deep v ad letterpress. Squid beard brunch, exercitation raw denim yr sint direct trade. Raw denim narwhal id, flannel DIY McSweeney’s seitan. Letterpress artisan bespoke accusamus, meggings laboris consequat Truffaut qui in seitan. Sustainable cornhole Schlitz, twee Cosby sweater banh mi deep v forage letterpress flannel whatever keffiyeh. Sartorial cred irure, semiotics ethical sed blue bottle nihil letterpress.&lt;/p&gt;
-
-&lt;p&gt;Occupy et selvage squid, pug brunch blog nesciunt hashtag mumblecore skateboard yr kogi. Ugh small batch swag four loko. Fap post-ironic qui tote bag farm-to-table american apparel scenester keffiyeh vero, swag non pour-over gentrify authentic pitchfork. Schlitz scenester lo-fi voluptate, tote bag irony bicycle rights pariatur vero Vice freegan wayfarers exercitation nisi shoreditch. Chambray tofu vero sed. Street art swag literally leggings, Cosby sweater mixtape PBR lomo Banksy non in pitchfork ennui McSweeney’s selfies. Odd Future Banksy non authentic.&lt;/p&gt;
-
-&lt;p&gt;Aliquip enim artisan dolor post-ironic. Pug tote bag Marfa, deserunt pour-over Portland wolf eu odio intelligentsia american apparel ugh ea. Sunt viral et, 3 wolf moon gastropub pug id. Id fashion axe est typewriter, mlkshk Portland art party aute brunch. Sint pork belly Cosby sweater, deep v mumblecore kitsch american apparel. Try-hard direct trade tumblr sint skateboard. Adipisicing bitters excepteur biodiesel, pickled gastropub aute veniam.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 21 Jul 2016 00:00:00 +0800</pubDate>
-        <link>/misc/2016/07/21/readability-post.html</link>
-        <guid isPermaLink="true">/misc/2016/07/21/readability-post.html</guid>
-        
-        <category>books</category>
-        
-        
-        <category>misc</category>
-        
-      </item>
-    
-      <item>
-        <title>Syntax Highlighting Post</title>
-        <description>&lt;p&gt;Syntax highlighting is a feature that displays source code, in different colors and fonts according to the category of terms. This feature facilitates writing in a structured language such as a programming language or a markup language as both structures and syntax errors are visually distinct. Highlighting does not affect the meaning of the text itself; it is intended only for human readers.&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;highlighted-code-blocks&quot;&gt;Highlighted Code Blocks&lt;/h3&gt;
-
-&lt;p&gt;To modify styling and highlight colors edit &lt;code&gt;/_sass/_syntax.scss&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;css
-  code {
-        font-size: 13px;
-        border: 1px solid black;
-        font-family: Menlo, Monaco, &quot;Andale Mono&quot;, serif;
-    }
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;```ruby
-require “test”
-CONSTANT = 777&lt;/p&gt;
-
-&lt;h1 id=&quot;sample-comment&quot;&gt;Sample comment&lt;/h1&gt;
-
-&lt;p&gt;class Module::Class
-  include Testcase&lt;/p&gt;
-
-&lt;p&gt;render :action =&amp;gt; ‘foo’
-  def foo(parameter)
-    @parameter = parameter
-  end&lt;/p&gt;
-
-&lt;p&gt;local_var = eval «-“FOO”;\
-  printIndex “Hello world!”
-  And now this is heredoc!
-  printIndex “Hello world again!”
-  FOO
-  foo(“#{$GLOBAL_TIME » $`} is \Z sample &quot;string&quot;” * 777);
-  if ($1 =~ /sample regular expression/ni) then
-  begin
-    puts %W(sample words), CONSTANT, :fooo;
-    do_something :action =&amp;gt; “action”
-  end
-  expect{counter[0]}.to_be eq 1
-  1.upto(@@n) do |index| printIndex ‘Hello’ + index end
-  \\\\&lt;br /&gt;
-  end
-end&lt;/p&gt;
-
-&lt;p&gt;```&lt;/p&gt;
-
-&lt;h3 id=&quot;github-gist-embed&quot;&gt;GitHub Gist Embed&lt;/h3&gt;
-
-&lt;p&gt;An example of a Gist embed below.&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/kuoa/f987705546e7d8366016812760e1e834.js&quot;&gt;&lt;/script&gt;
-
-&lt;div class=&quot;footnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Syntax_highlighting&quot;&gt;http://en.wikipedia.org/wiki/Syntax_highlighting&lt;/a&gt;&amp;nbsp;&lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Wed, 20 Jul 2016 00:00:00 +0800</pubDate>
-        <link>/syntax/2016/07/20/code-highlighting-post.html</link>
-        <guid isPermaLink="true">/syntax/2016/07/20/code-highlighting-post.html</guid>
-        
-        <category>post,</category>
-        
-        <category>code,</category>
-        
-        <category>highlighting</category>
-        
-        
-        <category>syntax</category>
-        
-      </item>
-    
-      <item>
-        <title>A Post with a Video</title>
-        <description>&lt;center&gt;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/2DLnhdnSUVs&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/center&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;```html&lt;/p&gt;
-&lt;center&gt;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/2DLnhdnSUVs&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/center&gt;
-&lt;p&gt;```&lt;/p&gt;
-</description>
-        <pubDate>Sun, 19 Jun 2016 00:00:00 +0800</pubDate>
-        <link>/misc/2016/06/19/video-post.html</link>
-        <guid isPermaLink="true">/misc/2016/06/19/video-post.html</guid>
-        
-        <category>books,</category>
-        
-        <category>video</category>
         
         
         <category>misc</category>

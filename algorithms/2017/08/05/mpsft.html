@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Matrix Pencil Sparse Fourier Transform</title>
+  <meta name="description" content="Links">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="/algorithms/2017/08/05/mpsft.html">
+  <link rel="alternate" type="application/rss+xml" title="Jiawei's homepage" href="/feed.xml" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+</head>
+
+
+  <body>
+
+    <div class="site-header">
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <i class="fa fa-navicon fa-lg"></i>
+      </a>
+
+      <div class="trigger">
+        
+          <a class="page-link" target="_top"
+             href="/">Home</a>
+        
+          <a class="page-link" target="_top"
+             href="/about">About</a>
+        
+          <a class="page-link" target="_top"
+             href="/archive">Archive</a>
+        
+          <a class="page-link" target="_blank"
+             href="http://github.com/tinkerstash">GitHub</a>
+        
+      </div>
+    </nav>
+
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+     <h1 class="post-title">Matrix Pencil Sparse Fourier Transform</h1>
+     <p class="post-meta">
+         <i class="fa fa-calendar-o"></i> Aug 5, 2017
+          • <i class="fa fa-user"></i> jiawei
+         </p>
+  </header>
+
+    <div class="post-paging">
+  
+    <div class="left">
+      <a href="/misc/2016/07/22/sample-post.html">
+        <i class="fa fa-angle-left fa-2x"></i>
+      </a>
+    </div>
+  
+  
+</div>
+
+
+  <article class="post-content">
+    <h1 id="links">Links</h1>
+
+<ul>
+  <li><a href="https://github.com/tinkerstash/mpsft/blob/master/report/report.pdf"><strong>Brief report</strong></a> describes how MPSFT works.</li>
+  <li><a href="https://dspace.mit.edu/handle/1721.1/83691?show=full">PhD thesis</a> contains some theory.</li>
+  <li><a href="https://github.com/tinkerstash/mpsft">Github page</a> has the implementation details.</li>
+</ul>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>SFT (sparse Fourier transform) algorithms aim to perform discrete Fourier transform in O(S) time, ignoring log factors, where S is the sparsity in frequency domain. In other words, the solution has a support of size S, plus some noise.</p>
+
+<p>In MPSFT (Matrix Pencil Sparse Fourier Transform), we apply the matrix pencil method to improve the accuracy of mode identification and to reduce the chance of creating spurious modes (and having to correct them later). It makes SFT algorithms more feasible and practical. For N=2^22, we are faster than FFTW when S is less than around 1800. AAFFT is faster for a smaller range of S, say around &lt;= 200. A more recent work <a href="http://users.math.msu.edu/users/markiwen/Papers/DiscreteSFT.pdf">DMSFT</a> seems to be somewhat competitive with MPSFT.</p>
+
+<h1 id="results">Results</h1>
+
+<p>In the plot below, we fix N=2^22 and vary S (sparsity) and plot the running time. SFFT1 and SFFT2 are faster but they have a runtime of O(sqrt(NS)) ignoring log factors.</p>
+
+<p><img src="https://raw.githubusercontent.com/tinkerstash/mpsft/master/report/graph/runtime_vary_k.png" alt="plot" /></p>
+
+<p>In the plot below, we fix K=50 and increase N. Here we see that MPSFT will be faster than SFFT1, SFFT2 for N being around 2^24.</p>
+
+<p><img src="https://raw.githubusercontent.com/tinkerstash/mpsft/master/report/graph/runtime_vary_n.png" alt="plot" /></p>
+
+<h1 id="basic-ingredients">Basic ingredients</h1>
+
+<p>We bin the signal in frequency domain by convolving with a <strong>smoothed boxcar filter</strong>. This can be achieved in time domain by multiplying with the corresponding window.</p>
+
+<p>In each bin, we hope there is only one mode. Then using the <strong>matrix pencil method</strong>, we can identify each bit of the mode frequency and also detect if there is indeed exactly one mode.</p>
+
+<p>We exploit some <strong>symmetry</strong> to roughly halve the computation cost of the matrix pencil method. We apply <strong>SIMD</strong> optimization to achieve &gt;=2X speedup.</p>
+
+  </article>
+
+    <!--  -->
+
+    <!-- 
+       <div class="block">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = "";
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+</div>
+     -->
+
+  <div class="post-up" align="center">
+  	<a href="#">
+  	<i class="fa fa-angle-up fa-2x"></i>
+  	</a>
+  </div>
+
+</div>
+      </div>
+    </div>
+
+  <div class="footer center">
+
+  Built with Jekyll using
+  <a href="https://github.com/kuoa/julia" target="_blank">Julia</a>
+  theme
+  <img src='/assets/slothoutline.jpg' />
+</div>
+
+
+  </body>
+</html>
