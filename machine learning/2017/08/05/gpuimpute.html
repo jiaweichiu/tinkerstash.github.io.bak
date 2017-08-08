@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>GPU SoftImpute</title>
+  <meta name="description" content="Links">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="/machine%20learning/2017/08/05/gpuimpute.html">
+  <link rel="alternate" type="application/rss+xml" title="Jiawei's homepage" href="/feed.xml" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+</head>
+
+
+  <body>
+
+    <div class="site-header">
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <i class="fa fa-navicon fa-lg"></i>
+      </a>
+
+      <div class="trigger">
+        
+          <a class="page-link" target="_top"
+             href="/">Home</a>
+        
+          <a class="page-link" target="_top"
+             href="/about">About</a>
+        
+          <a class="page-link" target="_top"
+             href="/archive">Archive</a>
+        
+          <a class="page-link" target="_blank"
+             href="http://github.com/tinkerstash">GitHub</a>
+        
+      </div>
+    </nav>
+
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+     <h1 class="post-title">GPU SoftImpute</h1>
+     <p class="post-meta">
+         <i class="fa fa-calendar-o"></i> Aug 5, 2017
+          • <i class="fa fa-user"></i> jiawei
+         </p>
+  </header>
+
+    <div class="post-paging">
+  
+  
+    <div class="right">
+      <a href="/algorithms/2017/08/05/mpsft.html">
+        <i class="fa fa-angle-right fa-2x"></i>
+      </a>
+    </div>
+  
+</div>
+
+
+  <article class="post-content">
+    <h1 id="links">Links</h1>
+
+<ul>
+  <li><a href="https://github.com/tinkerstash/gpuimpute">Our Github page</a> with GPU-accelerated version of SoftImpute.</li>
+  <li><a href="https://arxiv.org/abs/1703.05487">Accelerated proximal gradient for SoftImpute</a> paper by Quanming Yao, James T. Kwok.</li>
+  <li><a href="https://github.com/quanmingyao/AIS-impute">Matlab implementation</a> by the same folks.</li>
+  <li><a href="https://web.stanford.edu/~hastie/Papers/mazumder10a.pdf">Original SoftImpute paper</a> by Mazumder, Hastie, Tibshirani.</li>
+</ul>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>We are interested in GPU-accelerating the SoftImpute algorithm from Hastie et al’s paper. This is a SVD-based collaborative filtering algorithm.</p>
+
+<p>We use randomized SVD as it seems to work better with GPUs. We use the accelerated proximal gradient method also mentioned in Quanming Yao et al’s paper. See below for references.</p>
+
+<p>We compare these GPU-accelerated versions against the CPU version. We see that there is at least a <em>10X</em> speedup. We also compare against a simple SGD implementation with a bit of tuning. All CPU implmentations, SoftImpute or SGD, use Eigen or BLAS. They are pretty efficient, to be fair.</p>
+
+<p>For the data, currently we only have the MovieLens 20M dataset. We split the data into 5 parts and use one part for measuring the error. (There is no validation set but we hardly do any tuning anyway.)</p>
+
+<p>The results seem to be that SGD is still faster, even when on single core.</p>
+
+<p>Our CPU is a I7-6700K. Our GPU is a Titan-X with 12G RAM.</p>
+
+<p><img src="https://github.com/tinkerstash/gpuimpute/blob/master/results/plot1.png?raw=true" alt="plot" /></p>
+
+<ul>
+  <li>The slowest is CPU-NoAcc which is the CPU version with un-accelerated proximal gradient.</li>
+  <li>The next slowest is CPU-Acc which is the CPU version with accelerated proximal gradient.</li>
+  <li>The GPU versions are all significantly faster, seemingly &gt;10X. (We do have a fast GPU unfortunately.)</li>
+  <li>However, SGD still seems to be the fastest.</li>
+</ul>
+
+<p>The most tricky part of the GPU code is probably the evaluation of many short inner products. It seems to be the bottleneck, and we have to write a custom kernel to do that efficiently.</p>
+
+  </article>
+
+    <!--  -->
+
+    <!-- 
+       <div class="block">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = "";
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+</div>
+     -->
+
+  <div class="post-up" align="center">
+  	<a href="#">
+  	<i class="fa fa-angle-up fa-2x"></i>
+  	</a>
+  </div>
+
+</div>
+      </div>
+    </div>
+
+  <div class="footer center">
+
+  Built with Jekyll using
+  <a href="https://github.com/kuoa/julia" target="_blank">Julia</a>
+  theme
+  <img src='/assets/slothoutline.jpg' />
+</div>
+
+
+  </body>
+</html>

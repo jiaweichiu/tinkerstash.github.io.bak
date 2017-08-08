@@ -6,9 +6,55 @@
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 05 Aug 2017 16:35:08 +0800</pubDate>
-    <lastBuildDate>Sat, 05 Aug 2017 16:35:08 +0800</lastBuildDate>
+    <pubDate>Wed, 09 Aug 2017 07:48:36 +0800</pubDate>
+    <lastBuildDate>Wed, 09 Aug 2017 07:48:36 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Node, React, Passport</title>
+        <description>&lt;h1 id=&quot;links&quot;&gt;Links&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/tinkerstash/node-react-passport&quot;&gt;Our Github page&lt;/a&gt; with React frontend, Node backend.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+
+&lt;p&gt;We want to build a basic example that demonstrate the use of the following technologies:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;React for frontend.&lt;/li&gt;
+  &lt;li&gt;Node-Express for backend.&lt;/li&gt;
+  &lt;li&gt;Axios for ajax (instead of jquery).&lt;/li&gt;
+  &lt;li&gt;Passport-local for authentication.&lt;/li&gt;
+  &lt;li&gt;Postgres (instead of Mongo) for potential big joins.&lt;/li&gt;
+  &lt;li&gt;Tape, Supertest for backend unit tests.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;On top of that, we use some smaller convenient libraries. For frontend, we use:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;React-Toastr for convenient display of messages.&lt;/li&gt;
+  &lt;li&gt;Bootstrap for simple styling.&lt;/li&gt;
+  &lt;li&gt;React-confirm-alert for confirm dialog in React.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For backend, we use:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Underscore for lots of nice utilities.&lt;/li&gt;
+  &lt;li&gt;Crypto for hashing salt + password.&lt;/li&gt;
+  &lt;li&gt;Continuation-local-storage for passing req, rsp globally.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sat, 05 Aug 2017 00:00:00 +0800</pubDate>
+        <link>/web%20development/2017/08/05/node_react_passport.html</link>
+        <guid isPermaLink="true">/web%20development/2017/08/05/node_react_passport.html</guid>
+        
+        
+        <category>web development</category>
+        
+      </item>
     
       <item>
         <title>Matrix Pencil Sparse Fourier Transform</title>
@@ -54,137 +100,47 @@
       </item>
     
       <item>
-        <title>Sample Post</title>
-        <description>&lt;p&gt;Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.&lt;/p&gt;
-
-&lt;h1 id=&quot;heading-1&quot;&gt;Heading 1&lt;/h1&gt;
-
-&lt;h2 id=&quot;heading-2&quot;&gt;Heading 2&lt;/h2&gt;
-
-&lt;h3 id=&quot;heading-3&quot;&gt;Heading 3&lt;/h3&gt;
-
-&lt;h4 id=&quot;heading-4&quot;&gt;Heading 4&lt;/h4&gt;
-
-&lt;h5 id=&quot;heading-5&quot;&gt;Heading 5&lt;/h5&gt;
-
-&lt;h6 id=&quot;heading-6&quot;&gt;Heading 6&lt;/h6&gt;
-
-&lt;h3 id=&quot;body-text&quot;&gt;Body text&lt;/h3&gt;
-
-&lt;p&gt;Lorem ipsum dolor sit amet, test link adipiscing elit. &lt;strong&gt;This is strong&lt;/strong&gt;. Nullam dignissim convallis est. Quisque aliquam.&lt;/p&gt;
-
-&lt;p&gt;This is a image.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/logo.png&quot; alt=&quot;panda&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;This is emphasized&lt;/em&gt;. Donec faucibus. Nunc iaculis suscipit dui. 53 = 125. Water is H&lt;sub&gt;2&lt;/sub&gt;O. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. The New York Times &lt;cite&gt;(That’s a citation)&lt;/cite&gt;. &lt;u&gt;Underline&lt;/u&gt;. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.&lt;/p&gt;
-
-&lt;p&gt;HTML and &lt;abbr title=&quot;cascading stylesheets&quot;&gt;CSS&lt;abbr&gt; are our tools. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.&lt;/abbr&gt;&lt;/abbr&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;blockquotes&quot;&gt;Blockquotes&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Lorem ipsum dolor sit amet, test link adipiscing elit. Nullam dignissim convallis est. Quisque aliquam.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;list-types&quot;&gt;List Types&lt;/h2&gt;
-
-&lt;h3 id=&quot;ordered-lists&quot;&gt;Ordered Lists&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Item one
-    &lt;ol&gt;
-      &lt;li&gt;sub item one&lt;/li&gt;
-      &lt;li&gt;sub item two&lt;/li&gt;
-      &lt;li&gt;sub item three&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Item two&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;unordered-lists&quot;&gt;Unordered Lists&lt;/h3&gt;
+        <title>GPU SoftImpute</title>
+        <description>&lt;h1 id=&quot;links&quot;&gt;Links&lt;/h1&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Item one&lt;/li&gt;
-  &lt;li&gt;Item two&lt;/li&gt;
-  &lt;li&gt;Item three&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/tinkerstash/gpuimpute&quot;&gt;Our Github page&lt;/a&gt; with GPU-accelerated version of SoftImpute.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/1703.05487&quot;&gt;Accelerated proximal gradient for SoftImpute&lt;/a&gt; paper by Quanming Yao, James T. Kwok.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/quanmingyao/AIS-impute&quot;&gt;Matlab implementation&lt;/a&gt; by the same folks.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://web.stanford.edu/~hastie/Papers/mazumder10a.pdf&quot;&gt;Original SoftImpute paper&lt;/a&gt; by Mazumder, Hastie, Tibshirani.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;tables&quot;&gt;Tables&lt;/h2&gt;
+&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
 
-&lt;table rules=&quot;groups&quot;&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Header1&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Header2&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Header3&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;cell1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;cell2&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;cell3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;cell4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;cell5&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;cell6&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;cell1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;cell2&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;cell3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;cell4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;cell5&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;cell6&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-  &lt;tfoot&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Foot1&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Foot2&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;Foot3&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tfoot&gt;
-&lt;/table&gt;
+&lt;p&gt;We are interested in GPU-accelerating the SoftImpute algorithm from Hastie et al’s paper. This is a SVD-based collaborative filtering algorithm.&lt;/p&gt;
 
-&lt;h2 id=&quot;code-snippets&quot;&gt;Code Snippets&lt;/h2&gt;
+&lt;p&gt;We use randomized SVD as it seems to work better with GPUs. We use the accelerated proximal gradient method also mentioned in Quanming Yao et al’s paper. See below for references.&lt;/p&gt;
 
-&lt;p&gt;Syntax highlighting via Rouge&lt;/p&gt;
+&lt;p&gt;We compare these GPU-accelerated versions against the CPU version. We see that there is at least a &lt;em&gt;10X&lt;/em&gt; speedup. We also compare against a simple SGD implementation with a bit of tuning. All CPU implmentations, SoftImpute or SGD, use Eigen or BLAS. They are pretty efficient, to be fair.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;css
-#container {
-  float: left;
-  margin: 0 -240px 0 0;
-  width: 100%;
-}
-&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;For the data, currently we only have the MovieLens 20M dataset. We split the data into 5 parts and use one part for measuring the error. (There is no validation set but we hardly do any tuning anyway.)&lt;/p&gt;
 
-&lt;p&gt;Non Rouge code example&lt;/p&gt;
+&lt;p&gt;The results seem to be that SGD is still faster, even when on single core.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;div id=&quot;awesome&quot;&amp;gt;
-    &amp;lt;p&amp;gt;This is great isn&#39;t it?&amp;lt;/p&amp;gt;
-&amp;lt;/div&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Our CPU is a I7-6700K. Our GPU is a Titan-X with 12G RAM.&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;https://github.com/tinkerstash/gpuimpute/blob/master/results/plot1.png?raw=true&quot; alt=&quot;plot&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The slowest is CPU-NoAcc which is the CPU version with un-accelerated proximal gradient.&lt;/li&gt;
+  &lt;li&gt;The next slowest is CPU-Acc which is the CPU version with accelerated proximal gradient.&lt;/li&gt;
+  &lt;li&gt;The GPU versions are all significantly faster, seemingly &amp;gt;10X. (We do have a fast GPU unfortunately.)&lt;/li&gt;
+  &lt;li&gt;However, SGD still seems to be the fastest.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The most tricky part of the GPU code is probably the evaluation of many short inner products. It seems to be the bottleneck, and we have to write a custom kernel to do that efficiently.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 22 Jul 2016 00:00:00 +0800</pubDate>
-        <link>/misc/2016/07/22/sample-post.html</link>
-        <guid isPermaLink="true">/misc/2016/07/22/sample-post.html</guid>
-        
-        <category>book</category>
-        
-        <category>live</category>
-        
-        <category>life</category>
+        <pubDate>Sat, 05 Aug 2017 00:00:00 +0800</pubDate>
+        <link>/machine%20learning/2017/08/05/gpuimpute.html</link>
+        <guid isPermaLink="true">/machine%20learning/2017/08/05/gpuimpute.html</guid>
         
         
-        <category>misc</category>
+        <category>machine learning</category>
         
       </item>
     
