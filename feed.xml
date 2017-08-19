@@ -6,8 +6,8 @@
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 09 Aug 2017 07:48:36 +0800</pubDate>
-    <lastBuildDate>Wed, 09 Aug 2017 07:48:36 +0800</lastBuildDate>
+    <pubDate>Sat, 19 Aug 2017 20:03:27 +0800</pubDate>
+    <lastBuildDate>Sat, 19 Aug 2017 20:03:27 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -48,11 +48,11 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 05 Aug 2017 00:00:00 +0800</pubDate>
-        <link>/web%20development/2017/08/05/node_react_passport.html</link>
-        <guid isPermaLink="true">/web%20development/2017/08/05/node_react_passport.html</guid>
+        <link>/projects/2017/08/05/node_react_passport.html</link>
+        <guid isPermaLink="true">/projects/2017/08/05/node_react_passport.html</guid>
         
         
-        <category>web development</category>
+        <category>projects</category>
         
       </item>
     
@@ -91,11 +91,11 @@
 &lt;p&gt;We exploit some &lt;strong&gt;symmetry&lt;/strong&gt; to roughly halve the computation cost of the matrix pencil method. We apply &lt;strong&gt;SIMD&lt;/strong&gt; optimization to achieve &amp;gt;=2X speedup.&lt;/p&gt;
 </description>
         <pubDate>Sat, 05 Aug 2017 00:00:00 +0800</pubDate>
-        <link>/algorithms/2017/08/05/mpsft.html</link>
-        <guid isPermaLink="true">/algorithms/2017/08/05/mpsft.html</guid>
+        <link>/projects/2017/08/05/mpsft.html</link>
+        <guid isPermaLink="true">/projects/2017/08/05/mpsft.html</guid>
         
         
-        <category>algorithms</category>
+        <category>projects</category>
         
       </item>
     
@@ -136,11 +136,11 @@
 &lt;p&gt;The most tricky part of the GPU code is probably the evaluation of many short inner products. It seems to be the bottleneck, and we have to write a custom kernel to do that efficiently.&lt;/p&gt;
 </description>
         <pubDate>Sat, 05 Aug 2017 00:00:00 +0800</pubDate>
-        <link>/machine%20learning/2017/08/05/gpuimpute.html</link>
-        <guid isPermaLink="true">/machine%20learning/2017/08/05/gpuimpute.html</guid>
+        <link>/projects/2017/08/05/gpuimpute.html</link>
+        <guid isPermaLink="true">/projects/2017/08/05/gpuimpute.html</guid>
         
         
-        <category>machine learning</category>
+        <category>projects</category>
         
       </item>
     
